@@ -12,5 +12,8 @@ class Category(models.Model):
         verbose_name='category'
         verbose_name_plural='categories'
 
+    def get_url(self):
+        from django.urls import reverse
+        return reverse('products_by_category', args=[self.slug])
     def __str__(self):
         return self.category_name
